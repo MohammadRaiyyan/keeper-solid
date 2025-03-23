@@ -2,7 +2,7 @@ import { createEffect, createSignal, on, onCleanup } from "solid-js";
 
 const useDebounceValue = (fn: (value: string) => void, delay = 700) => {
     const [value, setValue] = createSignal("");
-    let timeId: NodeJS.Timeout;
+    let timeId: ReturnType<typeof setTimeout>;
 
     createEffect(on(value, (v) => {
         if (timeId) {

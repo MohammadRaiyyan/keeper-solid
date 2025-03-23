@@ -1,5 +1,5 @@
-import path from "node:path";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
+import path from "node:path";
 import { defineConfig } from "vite";
 import solid from "vite-plugin-solid";
 
@@ -13,7 +13,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "~": path.resolve(__dirname, "./src"),
+      "~": path.resolve(path.dirname(new URL(import.meta.url).pathname), "./src"),
     },
   },
 });
